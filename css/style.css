@@ -1,0 +1,179 @@
+/* ============================================= */
+/* CONFIGURAÇÕES GERAIS E FONTES                 */
+/* ============================================= */
+
+/* Importando uma fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Definindo as variáveis de cores para facilitar a manutenção */
+:root {
+    --cor-roxa: #6a0dad; /* Um tom de roxo vibrante */
+    --cor-preta: #111111;
+    --cor-branca: #ffffff;
+    --cor-cinza: #f4f4f4;
+}
+
+/* Reset básico e estilos gerais do corpo da página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: var(--cor-branca);
+    color: var(--cor-preta);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* ============================================= */
+/* CABEÇALHO FIXO DO SITE                        */
+/* ============================================= */
+
+.site-header {
+    position: fixed;
+    background-color: var(--cor-preta);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Coloca o logo na esquerda e o menu na direita */
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px; /* Ajuste a altura máxima do seu logo */
+    width: auto;
+}
+
+.main-nav ul {
+    list-style: none; /* Remove as bolinhas da lista */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px; /* Espaçamento entre os itens do menu */
+}
+
+.main-nav a {
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent; /* Efeito para o hover */
+    transition: border-color 0.3s ease;
+}
+
+.main-nav a:hover {
+    border-color: var(--cor-roxa); /* Mostra uma linha roxa ao passar o mouse */
+}
+
+/* ============================================= */
+/* SEÇÃO PRINCIPAL (HERO) COM CARROSSEL          */
+/* ============================================= */
+
+.hero-section {
+    padding-top: 80px; /* Empurra o conteúdo para baixo do cabeçalho fixo */
+    height: 100vh; /* Ocupa 100% da altura da tela */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--cor-branca);
+    position: relative; 
+    transition: background-image 1s ease-in-out; /* Efeito de transição suave */
+}
+
+/* Camada escura sobre a imagem para legibilidade do texto */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de opacidade */
+}
+
+.hero-content {
+    position: relative; /* Para ficar acima da camada escura */
+    z-index: 1;
+}
+
+.company-name {
+    font-size: 4rem; /* Tamanho grande e impactante */
+    margin-bottom: 10px;
+}
+
+.slogan {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--cor-roxa);
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #580b94; /* Um roxo um pouco mais escuro */
+}
+
+/* ============================================= */
+/* SEÇÃO MISSÃO, VISÃO E VALORES (COM CARDS)     */
+/* ============================================= */
+
+.mvv-section {
+    padding: 80px 0;
+    background-color: var(--cor-cinza); /* Fundo cinza claro para destacar os cards brancos */
+}
+
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: center;
+}
+
+/* ESTILO BASE DO CARD */
+.mvv-item {
+    background-color: var(--cor-branca);
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição SUAVE para o efeito */
+}
+
+/* EFEITO HOVER DO CARD */
+.mvv-item:hover {
+    transform: translateY(-10px); /* Levanta o card 10px */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Aumenta a sombra para dar profundidade */
+}
+
+.mvv-item h2 {
+    color: var(--cor-roxa);
+    margin-bottom: 15px;
+}
