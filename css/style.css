@@ -1,24 +1,19 @@
-/* ============================================= */
-/* CONFIGURAÇÕES GERAIS E FONTES                 */
-/* ============================================= */
-
-/* Importando uma fonte moderna do Google Fonts */
+/* css/style.css */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* Definindo as variáveis de cores para facilitar a manutenção */
 :root {
-    --cor-roxa: #6a0dad; /* Um tom de roxo vibrante */
+    --cor-roxa: #6a0dad;
     --cor-preta: #111111;
     --cor-branca: #ffffff;
     --cor-cinza: #f4f4f4;
 }
 
-/* Reset básico e estilos gerais do corpo da página */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Adicionado para rolagem suave ao clicar nos links do menu */
+html {
+    scroll-behavior: smooth;
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -27,153 +22,235 @@ body {
     color: var(--cor-preta);
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px;
-}
-
-/* ============================================= */
-/* CABEÇALHO FIXO DO SITE                        */
-/* ============================================= */
+.container { max-width: 1100px; margin: auto; padding: 0 20px; }
 
 .site-header {
     position: fixed;
     background-color: var(--cor-preta);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 0; left: 0; width: 100%;
     padding: 15px 0;
     z-index: 100;
 }
 
-.header-container {
-    display: flex;
-    justify-content: space-between; /* Coloca o logo na esquerda e o menu na direita */
-    align-items: center;
-}
-
-.logo img {
-    max-height: 50px; /* Ajuste a altura máxima do seu logo */
-    width: auto;
-}
-
-.main-nav ul {
-    list-style: none; /* Remove as bolinhas da lista */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 30px; /* Espaçamento entre os itens do menu */
-}
-
+.header-container { display: flex; justify-content: space-between; align-items: center; }
+.logo img { max-height: 50px; width: auto; }
+.main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 30px; }
 .main-nav a {
     color: var(--cor-branca);
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
     padding-bottom: 5px;
-    border-bottom: 2px solid transparent; /* Efeito para o hover */
+    border-bottom: 2px solid transparent;
     transition: border-color 0.3s ease;
 }
-
-.main-nav a:hover {
-    border-color: var(--cor-roxa); /* Mostra uma linha roxa ao passar o mouse */
-}
-
-/* ============================================= */
-/* SEÇÃO PRINCIPAL (HERO) COM CARROSSEL          */
-/* ============================================= */
+.main-nav a:hover { border-color: var(--cor-roxa); }
 
 .hero-section {
-    padding-top: 80px; /* Empurra o conteúdo para baixo do cabeçalho fixo */
-    height: 100vh; /* Ocupa 100% da altura da tela */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    padding-top: 80px; height: 80vh;
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; color: var(--cor-branca);
+    position: relative; 
+    transition: background-image 1s ease-in-out;
+}
+.hero-section::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.hero-content { position: relative; z-index: 1; }
+.company-name { font-size: 4rem; margin-bottom: 10px; }
+.slogan { font-size: 1.5rem; margin-bottom: 30px; }
+
+.cta-button {
+    display: inline-block; padding: 15px 30px;
+    background-color: var(--cor-roxa); color: var(--cor-branca);
+    text-decoration: none; font-weight: bold;
+    border-radius: 5px; transition: background-color 0.3s ease;
+}
+.cta-button:hover { background-color: #580b94; }
+
+.mvv-section { padding: 80px 0; background-color: var(--cor-cinza); }
+.mvv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
+.mvv-item {
+    background-color: var(--cor-branca); padding: 40px 30px;
+    border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.mvv-item:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
+.mvv-item h2 { color: var(--cor-roxa); margin-bottom: 15px; }
+
+/* --- Estilos do Rodapé --- */
+/* --- Estilos Adicionais para o Rodapé --- */
+.site-footer-bottom {
+    background-color: var(--cor-preta);
+    color: #aaa;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.contact-info {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    margin: 20px 0;
+}
+
+.social-icon {
+    display: inline-block; /* Necessário para aplicar transformações */
+    margin: 0 25px; /* Espaçamento entre os ícones */
+    color: #aaa; /* Cor inicial dos ícones */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon svg {
+    width: 52px; /* Largura do ícone */
+    height: 52px; /* Altura do ícone */
+    fill: currentColor; /* Faz o SVG usar a cor do link pai (<a>) */
+}
+
+.social-icon:hover {
+    color: var(--cor-roxa); /* Muda a cor para roxa ao passar o mouse */
+    transform: translateY(-5px); /* Efeito de "levantar" sutil */
+}
+
+.copyright {
+    font-size: 0.8rem;
+    margin-top: 20px;
+}
+
+/* Responsividade para a seção MVV */
+@media (max-width: 900px) {
+    .mvv-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Estilos da Seção de Feedback --- */
+
+.feedback-section {
+    padding: 80px 0;
+    background-color: var(--cor-branca); /* Fundo branco para contrastar com o cinza e o preto */
+}
+
+.feedback-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: var(--cor-preta);
+}
+
+.testimonials-grid {
+    display: grid;
+    /* Grid responsivo: cria colunas de no mínimo 300px e as ajusta automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.testimonial-card {
+    background-color: var(--cor-cinza); /* Fundo cinza claro para o card */
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid var(--cor-roxa); /* Detalhe com a cor da marca */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
+}
+
+.testimonial-rating span {
+    color: #ffc107; /* Cor dourada para as estrelas */
+    font-size: 1.2rem;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #333;
+    margin: 15px 0;
+    flex-grow: 1; /* Faz o texto ocupar o espaço disponível */
+}
+
+.testimonial-author {
+    text-align: right;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.testimonial-author strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--cor-preta);
+}
+
+.testimonial-author small {
+    color: #666;
+}
+/* --- Estilos da Página "Sobre Nós" --- */
+
+.page-hero {
+    padding-top: 80px;
+    height: 40vh; /* Uma altura menor que o hero da home */
+    background-image: url('https://images.pexels.com/photos/831475/pexels-photo-831475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* IMAGEM DE EXEMPLO */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--cor-branca);
-    position: relative; 
-    transition: background-image 1s ease-in-out; /* Efeito de transição suave */
 }
 
-/* Camada escura sobre a imagem para legibilidade do texto */
-.hero-section::before {
+/* Reutiliza o overlay da página inicial */
+.page-hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de opacidade */
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
-.hero-content {
-    position: relative; /* Para ficar acima da camada escura */
-    z-index: 1;
-}
-
-.company-name {
-    font-size: 4rem; /* Tamanho grande e impactante */
-    margin-bottom: 10px;
-}
-
-.slogan {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: var(--cor-roxa);
-    color: var(--cor-branca);
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #580b94; /* Um roxo um pouco mais escuro */
-}
-
-/* ============================================= */
-/* SEÇÃO MISSÃO, VISÃO E VALORES (COM CARDS)     */
-/* ============================================= */
-
-.mvv-section {
+.page-content {
     padding: 80px 0;
-    background-color: var(--cor-cinza); /* Fundo cinza claro para destacar os cards brancos */
 }
 
-.mvv-grid {
+.about-section, .commitments-section, .esg-section {
+    margin-bottom: 80px;
+}
+
+.about-section h2, .commitments-section h2, .esg-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+.about-section p {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.commitments-grid, .esg-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
+}
+
+.commitment-card, .esg-card {
+    background-color: var(--cor-cinza);
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid var(--cor-roxa);
     text-align: center;
 }
 
-/* ESTILO BASE DO CARD */
-.mvv-item {
-    background-color: var(--cor-branca);
-    padding: 40px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição SUAVE para o efeito */
-}
-
-/* EFEITO HOVER DO CARD */
-.mvv-item:hover {
-    transform: translateY(-10px); /* Levanta o card 10px */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Aumenta a sombra para dar profundidade */
-}
-
-.mvv-item h2 {
-    color: var(--cor-roxa);
+.commitment-card h3, .esg-card h3 {
     margin-bottom: 15px;
+    color: var(--cor-roxa);
 }
