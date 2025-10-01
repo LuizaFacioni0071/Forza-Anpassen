@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Adicione os caminhos para as suas imagens aqui
     const images = [
-        'carro1.png',
-        'carro2.png',
-        'carro3.png'
+        '/images/carro1.png',
+        '/images/carro2.png',
+        '/images/carro3.png'
         // Adicione quantas imagens quiser
     ];
 
@@ -26,6 +26,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Define o intervalo de tempo para a troca (em milissegundos)
     // 5000ms = 5 segundos
     setInterval(changeBackgroundImage, 5000);
-
 
 });
