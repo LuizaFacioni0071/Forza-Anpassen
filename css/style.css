@@ -3,7 +3,7 @@
 
 :root {
     --cor-roxa: #6a0dad;
-    --cor-preta: #111111;
+    --cor-preta: #000000;
     --cor-branca: #ffffff;
     --cor-cinza: #f4f4f4;
 }
@@ -254,3 +254,4 @@ body {
     margin-bottom: 15px;
     color: var(--cor-roxa);
 }
+
